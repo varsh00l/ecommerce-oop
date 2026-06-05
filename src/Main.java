@@ -7,10 +7,15 @@ public class Main {
        Cart cart=new Cart();
        cart.addItem(phone);
 
-       cart.displayCart();
+        cart.displayCart();
         cart.calculatePrice();
         cart.setDiscount(new PercentDiscount("Sale", 10));
-        System.out.println("After 10% off: ₹" + cart.calculateFinalPrice());
+
+        Payment payment =new CashOnDelivery();
+        Order order=new Order(cart,payment);
+        order.addNotification(new EmailNotification("varsh@gmail.com"));
+        order.addNotification(new SmsNotification("9876543210"));
+        order.placeOrder();
 
 
     }
