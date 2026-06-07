@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
-    private ArrayList<Notification> notifications;
+    private List<Notification> notifications;
     private Cart cart;
     private Payment payment;
 
